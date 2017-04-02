@@ -1,6 +1,7 @@
 package com.luis.java;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 
 public class Admin {
 
@@ -8,7 +9,7 @@ private int id;
 
 private String nombre;
 
-
+@Autowired
 private Direccion dire;
 
 	
@@ -38,8 +39,8 @@ public int getId() {
 	return id;
 }
 
-
-public void setId(int id) {
+@Autowired
+public void setId(@Value("1")int id) {
 	this.id = id;
 }
 
@@ -49,7 +50,8 @@ public String getNombre() {
 }
 
 
-public void setNombre(String nombre) {
+@Autowired
+public void setNombre(@Value("luis")String nombre) {
 	this.nombre = nombre;
 }
 

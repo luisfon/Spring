@@ -1,21 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
-	<bean id="admin" class="com.luis.java.Admin">
+	
+<!-- Anotaciones  -->
+
+	<context:component-scan base-package="com.luis.java"></context:component-scan>
+
+	<bean id="admin" class="com.luis.java.Admin"></bean>
+	
+	<!-- XML -->
+		
+	<!--  <bean id="admin" class="com.luis.java.Admin">
 		<constructor-arg name="id" value="1"></constructor-arg>
 		<constructor-arg value="luis" name="nombre"></constructor-arg>
 		
-		<!-- clase a inyectar -->
 		<property name="dire" ref="dir"></property>
 	</bean>
 
 	<bean id="dir" class="com.luis.java.Direccion">
 		<constructor-arg name="postal" value="96970"></constructor-arg>
 		<constructor-arg name="dir" value="reforma"></constructor-arg>
-	</bean>
-
-
+	</bean>-->
+	
 </beans>

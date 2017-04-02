@@ -1,5 +1,10 @@
 package com.luis.java;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Direccion {
 
 	private int postal;
@@ -21,7 +26,8 @@ public class Direccion {
 		return postal;
 	}
 
-	public void setPostal(int postal) {
+	@Autowired
+	public void setPostal(@Value("9437")int postal) {
 		this.postal = postal;
 	}
 
@@ -29,7 +35,8 @@ public class Direccion {
 		return dir;
 	}
 
-	public void setDir(String dir) {
+	@Autowired
+	public void setDir(@Value("reforma")String dir) {
 		this.dir = dir;
 	}
 
