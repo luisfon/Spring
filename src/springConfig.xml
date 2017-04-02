@@ -6,12 +6,21 @@
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
 
 
+
+
 	
-<!-- Anotaciones  -->
+<context:component-scan base-package="com.luis.java"></context:component-scan>
+<context:component-scan base-package="com.luis.Dao"></context:component-scan>
+<context:component-scan base-package="com.luis.DaoImpl"></context:component-scan>
+<context:component-scan base-package="com.luis.pojos"></context:component-scan>
 
-	<context:component-scan base-package="com.luis.java"></context:component-scan>
-
-	<bean id="admin" class="com.luis.java.Admin"></bean>
+	<bean id="DataSource" class="org.apache.commons.dbcp.BasicDataSource">
+	<property name="driverClassName" value="oracle.jdbc.driver.OracleDriver"></property>
+	<property name="url" value="jdbc:oracle:thin:@localhost:1521:orcl"></property>
+	<property name="username" value="C##_LUIS"></property>
+	<property name="password" value="1234"></property>
+</bean>
+	
 	
 	<!-- XML -->
 		
@@ -21,10 +30,10 @@
 		
 		<property name="dire" ref="dir"></property>
 	</bean>
-
 	<bean id="dir" class="com.luis.java.Direccion">
 		<constructor-arg name="postal" value="96970"></constructor-arg>
 		<constructor-arg name="dir" value="reforma"></constructor-arg>
 	</bean>-->
+	
 	
 </beans>
