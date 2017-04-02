@@ -4,5 +4,18 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
 
-	<bean id="admin" class="com.luis.java.Admin"></bean>
+	<bean id="admin" class="com.luis.java.Admin">
+		<constructor-arg name="id" value="1"></constructor-arg>
+		<constructor-arg value="luis" name="nombre"></constructor-arg>
+		
+		<!-- clase a inyectar -->
+		<property name="dire" ref="dir"></property>
+	</bean>
+
+	<bean id="dir" class="com.luis.java.Direccion">
+		<constructor-arg name="postal" value="96970"></constructor-arg>
+		<constructor-arg name="dir" value="reforma"></constructor-arg>
+	</bean>
+
+
 </beans>
