@@ -1,5 +1,7 @@
 package test;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DataAccessException;
@@ -26,6 +28,13 @@ public class Main {
 	try {
 		
 		clienteDao.save(c);
+		
+		List<Clientes>client=clienteDao.clientesAll();
+		
+		for(Clientes client2:client)
+		{
+			System.out.println(client2);
+		}
 		
 	} catch (CannotGetJdbcConnectionException e) {
 		
