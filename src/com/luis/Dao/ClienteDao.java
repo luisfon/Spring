@@ -10,4 +10,8 @@ public interface ClienteDao {
 	
 	//trae todos los clientes
 	public List<Clientes>clientesAll();
+	
+	//buscar por ID
+	
+	public Clientes buscaId(int id);
 }

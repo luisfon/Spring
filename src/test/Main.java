@@ -29,12 +29,14 @@ public class Main {
 		
 		clienteDao.save(c);
 		
-		List<Clientes>client=clienteDao.clientesAll();
-		
-		for(Clientes client2:client)
-		{
-			System.out.println(client2);
-		}
+//		List<Clientes>client=clienteDao.clientesAll();
+//		
+//		for(Clientes client2:client)
+//		{
+//			System.out.println(client2);
+//		}
+//		
+		System.out.println(clienteDao.buscaId(3));
 		
 	} catch (CannotGetJdbcConnectionException e) {
 		

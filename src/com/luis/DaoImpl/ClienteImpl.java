@@ -15,6 +15,7 @@ import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
 
 import com.luis.Dao.ClienteDao;
+import com.luis.pojos.ClienteRowMap;
 import com.luis.pojos.Clientes;
 
 @Component("x")
@@ -61,6 +62,20 @@ public class ClienteImpl implements ClienteDao{
 			}
 			
 		} );
+	}
+
+	@Override
+	public Clientes buscaId(int id) {
+		
+//		return  (Clientes) template.query("select * from Clientes where idCliente=:idCliente",
+//				
+//				new MapSqlParameterSource("idCliente",id),new ClienteRowMap());
+		
+	//segunda Forma
+		
+		return template.queryForObject("select * from Clientes where idCliente=:idCliente",
+				new MapSqlParameterSource("idCliente",id),new ClienteRowMap());
+		
 	}
 
 }
