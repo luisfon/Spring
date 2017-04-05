@@ -2,6 +2,8 @@ package test;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.CannotGetJdbcConnectionException;
 
 import com.luis.Dao.ClienteDao;
 import com.luis.java.Admin;
@@ -18,15 +20,22 @@ public class Main {
 	
 	Clientes c=new Clientes();
 	c.setNombre("juan");
-	c.setApp("perez");
+	c.setApp("peres");
 	
-	if(clienteDao.save(c))
-	{
-		System.out.println("admin salvado");
-	}
-	else
-	{
-		System.out.println("errors");
+	
+	try {
+		
+		clienteDao.save(c);
+		
+	} catch (CannotGetJdbcConnectionException e) {
+		
+		e.printStackTrace();
+		
+	}//Excepcion de acceso a datos
+	
+	catch (DataAccessException e) {
+		
+		e.printStackTrace();
 	}
 	
     //System.out.println(context.getBean("admin"));
