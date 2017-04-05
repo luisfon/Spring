@@ -9,6 +9,7 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
+import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.stereotype.Component;
@@ -29,10 +30,13 @@ public class ClienteImpl implements ClienteDao{
 	
 	@Override
 	public boolean save(Clientes cliente) {
-		MapSqlParameterSource map=new MapSqlParameterSource();
+		//PRIMER MANERA DE SETEAR 
+//		MapSqlParameterSource map=new MapSqlParameterSource();
+//		map.addValue("nombre",cliente.getNombre());
+//		map.addValue("app",cliente.getApp());
 		
-		map.addValue("nombre",cliente.getNombre());
-		map.addValue("app",cliente.getApp());
+		//SEGUNDA MANERA
+		BeanPropertySqlParameterSource map = new BeanPropertySqlParameterSource(cliente);
 		
 		return template.update("insert into clientes(nombre,app) values(:nombre,:app)",map)==1;
 	}
